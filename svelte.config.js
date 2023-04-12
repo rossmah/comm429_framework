@@ -1,6 +1,6 @@
-/* import adapter from '@sveltejs/adapter-static'; //changed from adapter-auto
+/*import adapter from '@sveltejs/adapter-vercel'; //changed from adapter-auto
 
-/** @type {import('@sveltejs/kit').Config} 
+/** @type {import('@sveltejs/kit').Config} *
 const config = {
 	kit: {
 		// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
@@ -10,21 +10,17 @@ const config = {
 	}
 };
 
-export default config;
+export default config; */
 
-*/
-
-import adapter from '@sveltejs/adapter-static';
+import adapter from '@sveltejs/adapter-vercel';
  
-const dev = process.argv.includes('dev');
- 
-/** @type {import('@sveltejs/kit').Config} */
+/* @type {import('@sveltejs/kit').Config} */
 const config = {
   kit: {
-    adapter: adapter(),
-    paths: {
-      base: dev ? '' : '/comm429_framework',
-    }
-  }
+    adapter: adapter({
+      runtime: 'nodejs18.x',
+    }),
+  },
 };
+ 
 export default config;
